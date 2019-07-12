@@ -3,7 +3,7 @@ package database;
 public class Properties {
 
 	public Properties() {
-		// TODO Auto-generated constructor stub
+		String property() = add new property;
 	}
 
 }

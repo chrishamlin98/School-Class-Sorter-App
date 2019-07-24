@@ -1,0 +1,20 @@
+
+Emilia
+Yesterday at 6:19 AM
+@chamlin I think this should be good, you might want to segregate the interfaces/operations more if you wanted to support other databases but for sql starters, should be okay https://gist.github.com/jjjimenez100/7f4e73106e212a861f980aee9affdf27
+
+Say you wanted to create a Query or Connection representation for mongo, and it didn't have some properties on the current one, remove the final keyword and just have MongoQuery or MongoConnection extend from the base classes and add the extra properties you need. But if you're only planning to support sql, leave the final keyword in there. You can also use composition in here instead of inheritance and just have a private final field for Query on those implementations.
+
+DatabaseConnection implementations should be handling any logic literally for the connections. Maintaining it, disposing it, or whatsoever. SqlDatabaseConnection, etc.
+DatabaseQuery handles all execution of the queries and makes use of your Query model class. SqlDatabaseQuery, etc.
+
+(I haven't tried any uml app on manjaro so I just did some examples)
+Gist
+Starter pack for wrapping database operations
+Starter pack for wrapping database operations. GitHub Gist: instantly share code, notes, and snippets.
+
+In case you need to execute query that doesn't really return any results, you can just return an empty list with Collections.emptyList  or ; you can have an overloaded version of executeQuery that only returns a boolean wc identifies if the query was succesful or not
+
+Oh also to note: reference the interfaces and not the implementations, so it's easy for you to switch out implementations in the future
+
+EDIT: Nvm the javalin package and just mind the classes and interfaces themselves :smile:

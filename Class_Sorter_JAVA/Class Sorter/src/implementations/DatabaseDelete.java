@@ -1,4 +1,4 @@
-package implementaions;
+package implementations;
 
 import operations;
 
@@ -10,7 +10,7 @@ interface DatabaseRead
 class Deletion implements DatabaseDelete
 {
     System.out.println(deleteString + " has been deleted from the database");
-    
+
     public static void main(String[]args)
     {
         DatabaseDelete obj = new Deletion();
